@@ -50,6 +50,9 @@ return setBooks([])
 },[])
 useEffect(()=>{
   fetchBooks()
+  if(!authorName){
+    setHighValue(false)
+  }
  },[authorName])
  useEffect(()=>{
    fetchBooks()
