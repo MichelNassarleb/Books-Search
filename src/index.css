@@ -181,3 +181,50 @@ align-items: center;
 .fullpage{
   height: 120vh;
 }
+@media only screen and (max-width:800px){
+  .fullpage{
+    height: 140vh;
+  }
+  .book-container{
+    display: grid;
+    
+ grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+  gap: 0px; 
+
+    width: 98vw;
+height: 100vh;
+
+gap: 0px;
+  }
+ .book-sec{
+ gap: 0px;
+   max-height: 25vh;
+   align-items: flex-start;
+
+   width: 43vw;
+   
+ }
+.book-img{
+
+width: 90%;
+}
+.book-img img{
+  width: 50px;
+}
+ .book-info{
+ height: 100%;
+ width: 80%;
+ 
+ }
+ .book-info h3{
+   font-size: 10px;
+ }
+ .book-info p{
+   font-size: 7px;
+ }
+ .book-info button{
+   padding: 2px 2px;
+   font-size: 8px;
+ }
+}
