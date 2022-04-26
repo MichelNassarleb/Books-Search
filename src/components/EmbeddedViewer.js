@@ -6,7 +6,7 @@ import { useState } from "react";
 const EmbeddedViewer = () =>{
 
   
-  
+
   const { volumeId } = useParams()
   useEffect(()=> {      
     const scriptTag = document.createElement('script')   
@@ -18,24 +18,24 @@ const EmbeddedViewer = () =>{
    
   }, []); 
 
-  useEffect(()=> {      
+  // useEffect(()=> {      
  
-    const scriptJs = document.createElement('script')                
-  scriptJs.type='text/javascript'  
-  scriptJs.async=true 
+  //   const scriptJs = document.createElement('script')                
+  // scriptJs.type='text/javascript'  
+  // scriptJs.async=true 
    
-  scriptJs.innerHTML = `
-  google.books.load();
-  function initialize() {
-    var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-    viewer.load(${volumeId});
+  // scriptJs.innerHTML = `
+  // google.books.load();
+  // function initialize() {
+  //   var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+  //   viewer.load(${volumeId});
   
-  }
+  // }
 
-  google.books.setOnLoadCallback(initialize);`
-    document.body.appendChild(scriptJs);
+  // google.books.setOnLoadCallback(initialize);`
+  //   document.body.appendChild(scriptJs);
   
-  }, []); 
+  // }, []); 
  
   return(
     <div>
