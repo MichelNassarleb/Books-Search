@@ -3,13 +3,13 @@ import { GoogleLogin } from "react-google-login";
 
 
 
-const Login = ({setSignedOut,setSignedIn})=>{
+const Login = ({setSignedOut,setSignedIn,clientId})=>{
 
 
 
     
     
-    const clientId = '423071023500-um3brv109de4vq4dq5cisqvblujl5eq1.apps.googleusercontent.com'
+
     const onSuccess = () =>{
         
         setSignedIn(true)

@@ -14,7 +14,8 @@ const AuthorSearch = ({setSignedIn,
    authorName,
    signedIn,
 setBookCount,
-setPagination}) =>{
+setPagination,
+clientId}) =>{
 
 
   return(
@@ -25,6 +26,7 @@ setPagination}) =>{
      setSignedOut={setSignedOut}
        setSignedIn={setSignedIn}
        signedIn={signedIn}
+       clientId={clientId}
        />
     </div>
     <div className='search-books-sec'>

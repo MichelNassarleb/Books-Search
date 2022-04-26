@@ -14,7 +14,7 @@ import EmbeddedViewer from './components/EmbeddedViewer'
 function App() {
 
 
-  const clientId = '1093032939322-qv46ld2aj4j05qq01gcd77b15tjgsttm.apps.googleusercontent.com'
+  const clientId = '423071023500-um3brv109de4vq4dq5cisqvblujl5eq1.apps.googleusercontent.com'
 const [authorName,setAuthorName] = useState('')
 const [indexBook, setIndexBook] = useState(0)
 const [loading,setLoading] = useState(true)
@@ -97,6 +97,7 @@ if(loading){
    setSignedIn={setSignedIn}
     setSignedOut={setSignedOut}
      signedOut={signedOut}
+     clientId={clientId}
      /> }
      />
     
@@ -113,7 +114,7 @@ if(loading){
         setBookCount={setBookCount}
         bookCount={bookCount}
         setPagination={setPagination}
-      
+        clientId={clientId}
         />}
 
   />
