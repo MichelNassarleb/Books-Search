@@ -10,7 +10,7 @@ const Login = ({setSignedOut,setSignedIn})=>{
     
     
     const clientId = '1093032939322-qv46ld2aj4j05qq01gcd77b15tjgsttm.apps.googleusercontent.com'
-    const onSuccess = (res) =>{
+    const onSuccess = () =>{
         
         setSignedIn(true)
         setSignedOut(false)
@@ -18,8 +18,8 @@ const Login = ({setSignedOut,setSignedIn})=>{
     window.location.href='/authorsearch'
 }
     const onFailure = (res) =>{
-        test = res
-        console.log(test)
+     
+        console.log(res)
     }
     
 
