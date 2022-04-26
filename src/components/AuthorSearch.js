@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import Logoutbutton from './Logout'
-
+import Footer from './Footer'
 import Search from './Search'
 import Books from './Books'
-
+import Pagination from './Pagination'
 
 
 const AuthorSearch = ({setSignedIn,
@@ -15,12 +15,21 @@ const AuthorSearch = ({setSignedIn,
    signedIn,
 setBookCount,
 setPagination,
-clientId}) =>{
+clientId,
+highValue,
+pagination,
+bookCount,
+indexBook,
+setIndexBook,
+changeOfStartIndex}) =>{
 
 
   return(
 
-    <div className='fullpage'>
+   
+  
+ <div className={highValue ? 'bigpage' : 'fullpage'}>
+ 
  <div className='google-btn'>
     <Logoutbutton
      setSignedOut={setSignedOut}
@@ -35,12 +44,23 @@ clientId}) =>{
           setAuthorName={setAuthorName}
           setPagination={setPagination}
           authorName={authorName}
+         
+          bookCount={bookCount}
           />
     {authorName && <Books 
      books={books}
      
-    /> }
-     </div>
+    /> 
+    }
+   
+    
+  </div>
+<div className='footer-sec'>
+     {pagination && <Pagination indexBook={indexBook} setIndexBook={setIndexBook}
+    changeOfStartIndex={changeOfStartIndex}/> }
+<Footer/>
+</div>
+
         </div>
   )
 }

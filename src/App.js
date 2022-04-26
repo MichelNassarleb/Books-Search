@@ -23,6 +23,7 @@ const [loading,setLoading] = useState(true)
 const[signedOut,setSignedOut] = useState(false)
 const [bookCount,setBookCount] = useState(10);
 const [pagination,setPagination] = useState(false)
+const[highValue,setHighValue] = useState(false)
   var url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${authorName}&download=epub&filter=free-ebooks&orderBy=newest&startIndex=${indexBook && `${indexBook}`}${bookCount && `&maxResults=${bookCount}`}`
 
 
@@ -52,6 +53,10 @@ useEffect(()=>{
  },[authorName])
  useEffect(()=>{
    fetchBooks()
+if(bookCount > 10){
+  setHighValue(true)
+}
+
  },[bookCount])
 
 useEffect(()=>{
@@ -65,6 +70,8 @@ console.log(indexBook)
 
 
   }
+
+
 
 useEffect(()=>{
   function start(){
@@ -115,15 +122,19 @@ if(loading){
         bookCount={bookCount}
         setPagination={setPagination}
         clientId={clientId}
+        highValue = {highValue}
+        setHighValue={setHighValue}
+        pagination={pagination}
+        indexBook={indexBook}
+        setIndexBook={setIndexBook}
+        changeOfStartIndex={changeOfStartIndex}
         />}
 
   />
   
   <Route path='/AuthorSearch/:volumeId' element={<EmbeddedViewer />}/>
     </Routes>
-    {pagination && <Pagination indexBook={indexBook} setIndexBook={setIndexBook}
-    changeOfStartIndex={changeOfStartIndex}/> }
-<Footer/>
+    
     </div>
   );
   
