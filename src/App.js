@@ -56,6 +56,9 @@ useEffect(()=>{
 if(bookCount > 10){
   setHighValue(true)
 }
+else{
+  setHighValue(false)
+}
 
  },[bookCount])
 
