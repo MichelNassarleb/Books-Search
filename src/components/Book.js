@@ -16,34 +16,35 @@ const Book = ({book})=>{
     return(
               
             <div>
-                <Link to ={`/authorSearch/${book.id}`} className='book-sec'>
-                <div className='book-img'>
-                <img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
-                </div>
-                <div className='book-info'>
-                {bookDetails.title.length ? <h3>Title: {bookDetails.title.length > 50 ? `${bookDetails.title.substring(0,50)}...` : `${bookDetails.title}`}</h3> : ''}
-                {bookDetails.pageCount ? <p>Pagecount: {bookDetails.pageCount}</p> : ''}
+              <a
+               href={bookDetails.previewLink} 
+              target='_blank'
+              className='book-sec'>
+<div className='book-img'>
+<img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
+</div>
+<div className='book-info'>
+{bookDetails.title.length ? <h3>Title: {bookDetails.title.length > 50 ? `${bookDetails.title.substring(0,50)}...` : `${bookDetails.title}`}</h3> : ''}
+{bookDetails.pageCount ? <p>Pagecount: {bookDetails.pageCount}</p> : ''}
 
-                  <p>Authors: {authors && authors.slice(0,3).map((author,index)=>{
-    return(
-    <span key = {index}>{author},</span>)
-          })}
-          </p>
+<p>Authors: {authors && authors.slice(0,3).map((author,index)=>{
+return(<span key = {index}>{author},</span>)
+})}</p>
 
- 
-               {bookDetails.publisher ? <p>Publisher:{bookDetails.publisher}</p> : ''}
-               {bookDetails.publishedDate ? <p>Published Date:{bookDetails.publishedDate}</p> : ''}
-               {bookDetails.ratingCount ? <p>Ratings Count: {bookDetails.ratingCount}</p> : ''}
-                {bookDetails.averageRating ? <ReactStars
-                                              count={5}
-                                               value={bookDetails.averageRating}
- 
-                                               size={12}
-                                               activeColor="#ffd700"
-                                               /> : <p>There's no rating for this book!</p>}
-               <button onClick ={()=>redirect()}>Download</button>
-               </div>
-               </Link>
+
+{bookDetails.publisher ? <p>Publisher:{bookDetails.publisher}</p> : ''}
+{bookDetails.publishedDate ? <p>Published Date:{bookDetails.publishedDate}</p> : ''}
+{bookDetails.ratingCount ? <p>Ratings Count: {bookDetails.ratingCount}</p> : ''}
+{bookDetails.averageRating ? <ReactStars
+count={5}
+value={bookDetails.averageRating}
+
+size={12}
+activeColor="#ffd700"
+/> : <p>There's no rating for this book!</p>}
+<button onClick ={()=>redirect()}>Download</button>
+</div>
+</a>
                 </div>      
     )
 }
@@ -72,6 +73,34 @@ activeColor="#ffd700"
 /> : <p>There's no rating for this book!</p>}
 <button onClick ={()=>redirect()}>Download</button>
 </div>
-</a> */}
+</a>
+  <Link to ={`/authorSearch/${book.id}`} className='book-sec'>
+                <div className='book-img'>
+                <img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
+                </div>
+                <div className='book-info'>
+                {bookDetails.title.length ? <h3>Title: {bookDetails.title.length > 50 ? `${bookDetails.title.substring(0,50)}...` : `${bookDetails.title}`}</h3> : ''}
+                {bookDetails.pageCount ? <p>Pagecount: {bookDetails.pageCount}</p> : ''}
+
+                  <p>Authors: {authors && authors.slice(0,3).map((author,index)=>{
+    return(
+    <span key = {index}>{author},</span>)
+          })}
+          </p>
+
+ 
+               {bookDetails.publisher ? <p>Publisher:{bookDetails.publisher}</p> : ''}
+               {bookDetails.publishedDate ? <p>Published Date:{bookDetails.publishedDate}</p> : ''}
+               {bookDetails.ratingCount ? <p>Ratings Count: {bookDetails.ratingCount}</p> : ''}
+                {bookDetails.averageRating ? <ReactStars
+                                              count={5}
+                                               value={bookDetails.averageRating}
+ 
+                                               size={12}
+                                               activeColor="#ffd700"
+                                               /> : <p>There's no rating for this book!</p>}
+               <button onClick ={()=>redirect()}>Download</button>
+               </div>
+               </Link> */}
 
 export default Book;
