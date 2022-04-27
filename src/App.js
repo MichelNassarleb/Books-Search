@@ -27,7 +27,7 @@ const [bookCount,setBookCount] = useState(10);
 const [pagination,setPagination] = useState(false)
 const[highValue,setHighValue] = useState(false)
 
-  var url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${authorName}&download=epub&filter=free-ebooks&orderBy=newest&startIndex=${indexBook && `${indexBook}`}${bookCount && `&maxResults=${bookCount}`}`
+  var url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${authorName}&download=epub&filter=free-ebooks&orderBy=relevance&startIndex=${indexBook && `${indexBook}`}${bookCount && `&maxResults=${bookCount}`}`
 
 
 
