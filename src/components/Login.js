@@ -1,9 +1,9 @@
 
 import { GoogleLogin } from "react-google-login";
+import { Navigate } from "react-router";
 
 
-
-const Login = ({setSignedOut,setSignedIn,clientId})=>{
+const Login = ({setSignedOut,setSignedIn,clientId,signedIn})=>{
 
 
 
@@ -15,7 +15,7 @@ const Login = ({setSignedOut,setSignedIn,clientId})=>{
         setSignedIn(true)
         setSignedOut(false)
 
-    window.location.href='/authorsearch'
+        
 }
     const onFailure = (res) =>{
      

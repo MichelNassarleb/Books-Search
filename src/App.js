@@ -7,14 +7,16 @@ import AuthorSearch from './components/AuthorSearch';
 import Loginbutton from './components/Login'
 import { gapi } from 'gapi-script';
 import { Routes, Route } from "react-router-dom";
-import Pagination from './components/Pagination';
-import Footer from './components/Footer'
+import { Navigate } from 'react-router';
 import EmbeddedViewer from './components/EmbeddedViewer'
 
 function App() {
 
 
-  const clientId = '423071023500-um3brv109de4vq4dq5cisqvblujl5eq1.apps.googleusercontent.com'
+  const clientId = '680162628858-tj3trjk6kia4arm4j9tlom9l7tvpbc05.apps.googleusercontent.com'
+
+  // clientId of localhost:
+  // const clientId = '680162628858-f9pkrgehfthnsj6gfsdupoa3n4ebsolt.apps.googleusercontent.com'
 const [authorName,setAuthorName] = useState('')
 const [indexBook, setIndexBook] = useState(0)
 const [loading,setLoading] = useState(true)
@@ -24,6 +26,7 @@ const[signedOut,setSignedOut] = useState(false)
 const [bookCount,setBookCount] = useState(10);
 const [pagination,setPagination] = useState(false)
 const[highValue,setHighValue] = useState(false)
+
   var url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${authorName}&download=epub&filter=free-ebooks&orderBy=newest&startIndex=${indexBook && `${indexBook}`}${bookCount && `&maxResults=${bookCount}`}`
 
 
@@ -72,7 +75,7 @@ useEffect(()=>{
 const changeOfStartIndex = (pageNumber)=>{
 
   setIndexBook((pageNumber-1) * 10)
-console.log(indexBook)
+
 
 
   }
@@ -105,18 +108,18 @@ if(loading){
 <Routes>
 
 
-<Route path='/' element={<Loginbutton 
+<Route path='/' element={signedIn ?  <Navigate to = '/AuthorSearch'/> :  <Loginbutton 
    signedIn={signedIn} 
    setSignedIn={setSignedIn}
     setSignedOut={setSignedOut}
      signedOut={signedOut}
      clientId={clientId}
-     /> }
+     />}
      />
     
 <Route
  path='AuthorSearch'
-  element={<AuthorSearch 
+  element={signedIn ? <AuthorSearch 
     authorName={authorName}
     books={books}
      fetchBooks={fetchBooks}
@@ -134,7 +137,7 @@ if(loading){
         indexBook={indexBook}
         setIndexBook={setIndexBook}
         changeOfStartIndex={changeOfStartIndex}
-        />}
+        /> : <Navigate to='/' />}
 
   />
   

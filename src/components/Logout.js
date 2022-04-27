@@ -13,8 +13,6 @@ function Logout({setSignedIn,setSignedOut,clientId}){
         console.log('Logout Successfull!')
         setSignedIn(false)
         setSignedOut(true)
-        window.location.href='/'
-  
     }
 
 return   ( <div id="signOutButton">
