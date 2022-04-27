@@ -187,25 +187,27 @@ align-items: center;
     flex-direction: column;
   }
   .book-container{
-  width: 98vw;
+  width: 93vw;
   display: flex;
   flex-direction: column;
 justify-content: center;
 align-items: center;
+margin: 0;
   }
  .book-sec{
  gap: 30px;
    height: 25vh;
    justify-content: center;
    align-items: center;
-
-   width: 92vw;
+margin-left: 0;
+  width: 93vw;
+  margin-right: auto;
    
  }
 .book-img{
 height: 100%;
 width: 30%;
-margin: 0;
+margin-top: 0;
 }
 .book-img img{
  height: 80%;
