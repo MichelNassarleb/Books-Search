@@ -308,15 +308,7 @@ border-radius: 10px;
 .booksline{
   letter-spacing: 0.5px;
 }
-.allBooksPage{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-align-items: center;
-color:red ;
 
-
-}
 .allBooksPage .not-found-paragraph{
 text-align: center;
   width: 100vw;
