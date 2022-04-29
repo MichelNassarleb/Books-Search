@@ -314,15 +314,16 @@ border-radius: 10px;
   justify-content: center;
 align-items: center;
 color:red ;
-font-weight: 900;
 
-text-align: center;}
+
+}
 .allBooksPage .not-found-paragraph{
-
+text-align: center;
   width: 100vw;
   background-color: antiquewhite;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: red;
 }
