@@ -235,6 +235,14 @@ margin-top: 0;
    padding: 2px 2px;
    font-size: 8px;
  }
+
+ .pagination{
+   width: 110vw;
+ }
+ .pagination p{
+   font-size: 8px;
+   gap: 3px;
+ }
 }
 .fullpage{
   height: 100vh;
@@ -296,4 +304,7 @@ margin-top: 0;
   padding:10px 10px;
 font-size: 20px;
 border-radius: 10px;
+}
+.booksline{
+  letter-spacing: 0.5px;
 }

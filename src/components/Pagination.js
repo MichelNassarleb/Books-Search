@@ -4,18 +4,23 @@ const Pagination = ({changeOfStartIndex,totalItems,bookCount}) =>{
 const pages = [];
 const numberOfItems = parseInt(totalItems);
 const numberOfBooks = parseInt(bookCount);
-const numberOfPages = numberOfItems / numberOfBooks ;
+
+let numberOfPages = numberOfItems / numberOfBooks ;
+
+
+
 console.log(parseInt(numberOfPages))
-for(let i = 1 ; i < parseInt(numberOfPages) - 1 ; i ++){
+for(let i = 1 ; i < parseInt(numberOfPages) ; i ++){
     pages.push(i);
 }
 
     useEffect(()=>console.log(pages))
 return <div className='pagination'>
+  {pages.length > 2 &&   <p className="booksline">B{pages.map(()=>'o')}ks</p>}
     <p>
-        {pages.map((page)=>{
+        {pages.length > 30 ? pages.slice(0,29).map((page)=>{
           return  <small onClick={()=>changeOfStartIndex(page)} key={page} >{page}</small>
-        })}
+        }) : pages.map((page)=>{ return <small onClick={()=>changeOfStartIndex(page)} key={page} >{page}</small>})}
     </p>
      </div>
 }

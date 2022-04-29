@@ -17,7 +17,7 @@ function App() {
  const clientId = '680162628858-tj3trjk6kia4arm4j9tlom9l7tvpbc05.apps.googleusercontent.com'
 
   // clientId of localhost:
- //const clientId = '680162628858-f9pkrgehfthnsj6gfsdupoa3n4ebsolt.apps.googleusercontent.com'
+ // const clientId = '680162628858-f9pkrgehfthnsj6gfsdupoa3n4ebsolt.apps.googleusercontent.com'
 const [authorName,setAuthorName] = useState('')
 const [indexBook, setIndexBook] = useState(0)
 const [loading,setLoading] = useState(true)
