@@ -1,7 +1,7 @@
 import React from 'react'
 import Book from './Book'
 import Pagination from './Pagination'
-const Books = ({books}) =>{
+const Books = ({books,indexBook,setIndexBook,pagination,changeOfStartIndex,totalItems,bookCount}) =>{
 
     return(<div>
 
@@ -12,7 +12,9 @@ const Books = ({books}) =>{
 
        
         </div>
-     
+        {pagination && <Pagination indexBook={indexBook} bookCount={bookCount} setIndexBook={setIndexBook}
+    changeOfStartIndex={changeOfStartIndex} totalItems={totalItems}/> }
+    
         </div>
     )
 }

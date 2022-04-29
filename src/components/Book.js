@@ -16,9 +16,8 @@ const Book = ({book})=>{
     return(
               
             <div>
-              <a
-               href={bookDetails.previewLink} 
-              target='_blank'
+              <Link to ={`/authorsearch/bookdetails/${book.id}`}
+              
               className='book-sec'>
 <div className='book-img'>
 <img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
@@ -44,7 +43,7 @@ activeColor="#ffd700"
 /> : <p>There's no rating for this book!</p>}
 <button onClick ={()=>redirect()}>Download</button>
 </div>
-</a>
+</Link>
                 </div>      
     )
 }

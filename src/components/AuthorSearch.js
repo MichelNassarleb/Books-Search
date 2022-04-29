@@ -21,7 +21,8 @@ pagination,
 bookCount,
 indexBook,
 setIndexBook,
-changeOfStartIndex}) =>{
+changeOfStartIndex,
+totalItems}) =>{
 
 
   return(
@@ -48,7 +49,13 @@ changeOfStartIndex}) =>{
           bookCount={bookCount}
           />
     {authorName && <Books 
+    indexBook={indexBook}
+    setIndexBook={setIndexBook}
+    changeOfStartIndex={changeOfStartIndex}
+  pagination={pagination}
      books={books}
+     totalItems={totalItems}
+     bookCount={bookCount}
      
     /> 
     }
@@ -56,8 +63,7 @@ changeOfStartIndex}) =>{
     
   </div>
 <div className='footer-sec'>
-     {pagination && <Pagination indexBook={indexBook} setIndexBook={setIndexBook}
-    changeOfStartIndex={changeOfStartIndex}/> }
+  
 <Footer/>
 </div>
 

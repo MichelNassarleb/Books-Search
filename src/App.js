@@ -10,13 +10,14 @@ import { Routes, Route } from "react-router-dom";
 import { Navigate } from 'react-router';
 import EmbeddedViewer from './components/EmbeddedViewer'
 
+
 function App() {
 
 
  const clientId = '680162628858-tj3trjk6kia4arm4j9tlom9l7tvpbc05.apps.googleusercontent.com'
 
   // clientId of localhost:
- // const clientId = '680162628858-f9pkrgehfthnsj6gfsdupoa3n4ebsolt.apps.googleusercontent.com'
+ //const clientId = '680162628858-f9pkrgehfthnsj6gfsdupoa3n4ebsolt.apps.googleusercontent.com'
 const [authorName,setAuthorName] = useState('')
 const [indexBook, setIndexBook] = useState(0)
 const [loading,setLoading] = useState(true)
@@ -26,8 +27,10 @@ const[signedOut,setSignedOut] = useState(false)
 const [bookCount,setBookCount] = useState(10);
 const [pagination,setPagination] = useState(false)
 const[highValue,setHighValue] = useState(false)
+const [filterTheBooks,setFilterTheBooks] = useState([]);
+const [totalItems,setTotalItems] = useState();
 
-  var url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${authorName}&download=epub&filter=free-ebooks&orderBy=relevance&startIndex=${indexBook && `${indexBook}`}${bookCount && `&maxResults=${bookCount}`}`
+var url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${authorName}&download=epub&filter=free-ebooks&orderBy=relevance&startIndex=${indexBook && `${indexBook}`}${bookCount && `&maxResults=${bookCount}`}`
 
 
 
@@ -40,7 +43,7 @@ const[highValue,setHighValue] = useState(false)
   const data = await response.json();
   setBooks(data.items)
 setLoading(false)
-
+setTotalItems(data.totalItems)
   }
   catch(error){
       alert(error);
@@ -48,13 +51,14 @@ setLoading(false)
 
 }
 useEffect(()=>{
-return setBooks([])
-
+setBooks([])
 },[])
 useEffect(()=>{
   fetchBooks()
+  setIndexBook(0)
   if(!authorName){
     setHighValue(false)
+   
   }
  },[authorName])
  useEffect(()=>{
@@ -137,11 +141,17 @@ if(loading){
         indexBook={indexBook}
         setIndexBook={setIndexBook}
         changeOfStartIndex={changeOfStartIndex}
+        totalItems={totalItems}
         /> : <Navigate to='/' />}
 
   />
   
-  <Route path='/AuthorSearch/:volumeId' element={<EmbeddedViewer />}/>
+  <Route path='/AuthorSearch/bookdetails/:volumeId' element={<EmbeddedViewer
+                                                              setBooks={setBooks}
+                                                              filterTheBooks={filterTheBooks}
+                                                              setFilterTheBooks={setFilterTheBooks}
+                                                              books={books}
+                                                              />}/>
     </Routes>
     
     </div>
