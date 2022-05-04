@@ -13,48 +13,20 @@ import EmbeddedViewer from './components/EmbeddedViewer'
 
 function App() {
 
-
+// clientId of my web domain:
  const clientId = '680162628858-tj3trjk6kia4arm4j9tlom9l7tvpbc05.apps.googleusercontent.com'
-
   // clientId of localhost:
   // const clientId = '680162628858-f9pkrgehfthnsj6gfsdupoa3n4ebsolt.apps.googleusercontent.com'
-const [authorName,setAuthorName] = useState('')
+
+//AuthorSearchBox:
+  const [authorName,setAuthorName] = useState('')
 const [indexBook, setIndexBook] = useState(0)
-const [loading,setLoading] = useState(true)
-  const [books,setBooks] = useState([]);
-  const[signedIn,setSignedIn] = useState(false);
-const[signedOut,setSignedOut] = useState(false)
+const [books,setBooks] = useState([]);
 const [bookCount,setBookCount] = useState(10);
-const [pagination,setPagination] = useState(false)
 const[highValue,setHighValue] = useState(false)
-const [filterTheBooks,setFilterTheBooks] = useState([]);
-const [totalItems,setTotalItems] = useState();
-const [error,setError] = useState(false);
 
+//fetch function rendering every time a value of these changes:
 
-var url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${authorName}&download=epub&filter=free-ebooks&orderBy=relevance&startIndex=${indexBook && `${indexBook}`}${bookCount && `&maxResults=${bookCount}`}`
-
-
-
- 
- const fetchBooks = async() =>{
-
-  try{
-   
-  const response = await fetch(url)
-  const data = await response.json();
-  setBooks(data.items)
-setLoading(false)
-setTotalItems(data.totalItems)
-  }
-  catch(error){
-      setError(true);
-  }
-
-}
-useEffect(()=>{
-setBooks([])
-},[])
 useEffect(()=>{
   fetchBooks()
   setIndexBook(0)
@@ -78,6 +50,49 @@ useEffect(()=>{
   fetchBooks()
 },[indexBook])
  
+
+//LoadingPage:
+const [loading,setLoading] = useState(true)
+ //LoginComp:
+  const[signedIn,setSignedIn] = useState(false);
+//LogoutComp:
+  const[signedOut,setSignedOut] = useState(false)
+
+
+//EmbeddedViewerComp
+const [filterTheBooks,setFilterTheBooks] = useState([]);
+//PaginationComp:
+const [pagination,setPagination] = useState(false)
+const [totalItems,setTotalItems] = useState();
+
+//ErrorComp:
+const [error,setError] = useState(false);
+
+
+var url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${authorName}&download=epub&filter=free-ebooks&orderBy=relevance&startIndex=${indexBook && `${indexBook}`}${bookCount && `&maxResults=${bookCount}`}`
+
+
+
+ //Fetch Function:
+ const fetchBooks = async() =>{
+
+  try{
+   
+  const response = await fetch(url)
+  const data = await response.json();
+  setBooks(data.items)
+setLoading(false)
+setTotalItems(data.totalItems)
+  }
+  catch(error){
+      setError(true);
+  }
+
+}
+useEffect(()=>{
+setBooks([])
+},[])
+
 const changeOfStartIndex = (pageNumber)=>{
 
   setIndexBook((pageNumber-1) * 10)
@@ -87,7 +102,7 @@ const changeOfStartIndex = (pageNumber)=>{
   }
 
 
-
+//Authentication of User:
 useEffect(()=>{
   function start(){
     gapi.auth2.init({
