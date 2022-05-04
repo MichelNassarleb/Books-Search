@@ -3,19 +3,23 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 const EmbeddedViewer = ({books,setBooks,filterTheBooks,setFilterTheBooks}) =>{
 
-  
 
   const { volumeId } = useParams()
   const filterBookFunc = () =>{
+   
     const oneBook = books.filter((book) => book.id === volumeId)
     // setBooks(oneBook)
     setFilterTheBooks(oneBook)
+    
+    
   }
+
   useEffect(()=>{
     filterBookFunc()
-    console.log(filterTheBooks)
+  
   },[])
 
 
@@ -23,15 +27,15 @@ const EmbeddedViewer = ({books,setBooks,filterTheBooks,setFilterTheBooks}) =>{
   return(
     
     <div id="viewerCanvas">
-      {filterTheBooks.map((book)=><div key={book.id}> <a href={book.volumeInfo.previewLink} className='details-sec'>
+      {filterTheBooks && filterTheBooks.map((book)=><div key={book.id}> <a href={book.volumeInfo.previewLink} className='details-sec'>
 <div className='book-img'>
 <img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
 </div>
 <div className='book-info'>
-{book.volumeInfo.title.length ? <h3>Title: {book.volumeInfo.title.length > 50 ? `${book.volumeInfo.title.substring(0,50)}...` : `${book.volumeInfo.title}`}</h3> : ''}
+{book.volumeInfo.title.length ? <h3>Title: {book.volumeInfo.title}</h3> : ''}
 {book.volumeInfo.pageCount ? <p>Pagecount: {book.volumeInfo.pageCount}</p> : ''}
 
-<p>Authors: {book.volumeInfo.authors && book.volumeInfo.authors.slice(0,3).map((author,index)=>{
+<p>Authors: {book.volumeInfo.authors && book.volumeInfo.authors.map((author,index)=>{
 return(<span key = {index}>{author},</span>)
 })}</p>
 

@@ -14,10 +14,10 @@ import EmbeddedViewer from './components/EmbeddedViewer'
 function App() {
 
 
-const clientId = '680162628858-tj3trjk6kia4arm4j9tlom9l7tvpbc05.apps.googleusercontent.com'
+ const clientId = '680162628858-tj3trjk6kia4arm4j9tlom9l7tvpbc05.apps.googleusercontent.com'
 
   // clientId of localhost:
- // const clientId = '680162628858-f9pkrgehfthnsj6gfsdupoa3n4ebsolt.apps.googleusercontent.com'
+  // const clientId = '680162628858-f9pkrgehfthnsj6gfsdupoa3n4ebsolt.apps.googleusercontent.com'
 const [authorName,setAuthorName] = useState('')
 const [indexBook, setIndexBook] = useState(0)
 const [loading,setLoading] = useState(true)
@@ -29,6 +29,8 @@ const [pagination,setPagination] = useState(false)
 const[highValue,setHighValue] = useState(false)
 const [filterTheBooks,setFilterTheBooks] = useState([]);
 const [totalItems,setTotalItems] = useState();
+const [error,setError] = useState(false);
+
 
 var url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${authorName}&download=epub&filter=free-ebooks&orderBy=relevance&startIndex=${indexBook && `${indexBook}`}${bookCount && `&maxResults=${bookCount}`}`
 
@@ -46,7 +48,7 @@ setLoading(false)
 setTotalItems(data.totalItems)
   }
   catch(error){
-      alert(error);
+      setError(true);
   }
 
 }
@@ -142,6 +144,8 @@ if(loading){
         setIndexBook={setIndexBook}
         changeOfStartIndex={changeOfStartIndex}
         totalItems={totalItems}
+        error={error}
+        setError={setError}
         /> : <Navigate to='/' />}
 
   />

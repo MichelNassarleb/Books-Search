@@ -9,12 +9,11 @@ let numberOfPages = numberOfItems / numberOfBooks ;
 
 
 
-console.log(parseInt(numberOfPages))
 for(let i = 1 ; i < parseInt(numberOfPages) ; i ++){
     pages.push(i);
 }
 
-    useEffect(()=>console.log(pages))
+   
 return <div className='pagination'>
   {pages.length > 2 &&   <p className="booksline">B{pages.map(()=>'o')}ks</p>}
     <p>

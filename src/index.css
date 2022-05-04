@@ -319,3 +319,49 @@ text-align: center;
   align-items: center;
   color: red;
 }
+#viewerCanvas .book-img{
+  display: flex;
+
+  width: 100%;
+height: auto;
+justify-content: center;
+align-items: center;
+}
+
+#viewerCanvas .book-img img{
+  width: 30%;
+  height: auto;
+}
+input{
+padding: 10px;
+}
+
+form select{
+  height: 30px;
+  border-radius: 10px;
+  border-color: #14b6;
+  padding: 10px;
+ display: block;
+ height: 40px;
+ width: 60px;
+}
+.error-sec{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error-sec .error-message{
+  color: #14142b;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+.error-message button{
+  margin-left:10px;
+  padding: 10px 15px;
+  margin-top: 8px;
+  
+}

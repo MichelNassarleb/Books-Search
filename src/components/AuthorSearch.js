@@ -4,6 +4,7 @@ import Footer from './Footer'
 import Search from './Search'
 import Books from './Books'
 import Pagination from './Pagination'
+import AlertError from './AlertError'
 
 
 const AuthorSearch = ({setSignedIn,
@@ -22,16 +23,20 @@ bookCount,
 indexBook,
 setIndexBook,
 changeOfStartIndex,
-totalItems}) =>{
+totalItems,
+error}) =>{
 
-
+if(error){
+   return <AlertError />
+}
   return(
 
    
-  
- <div className={highValue ? 'bigpage' : 'fullpage'}>
  
- <div className='google-btn'>
+ <div className={highValue ? 'bigpage' : 'fullpage'}>
+
+
+   <div className='google-btn'>
     <Logoutbutton
      setSignedOut={setSignedOut}
        setSignedIn={setSignedIn}
@@ -66,7 +71,6 @@ totalItems}) =>{
   
 <Footer/>
 </div>
-
         </div>
   )
 }
