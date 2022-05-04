@@ -15,7 +15,7 @@ for(let i = 1 ; i < parseInt(numberOfPages) ; i ++){
 
    
 return <div className='pagination'>
-  {pages.length > 2 &&   <p className="booksline">B{pages.map(()=>'o')}ks</p>}
+  {pages.length > 2 &&   <p className="booksline">B{pages.length > 30 ? pages.slice(0,29).map(()=>'o') : pages.map(()=>'o')}ks</p>}
     <p>
         {pages.length > 30 ? pages.slice(0,29).map((page)=>{
           return  <small onClick={()=>changeOfStartIndex(page)} key={page} >{page}</small>
