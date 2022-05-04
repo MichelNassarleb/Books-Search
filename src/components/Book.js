@@ -20,7 +20,7 @@ const Book = ({book})=>{
               
               className='book-sec'>
 <div className='book-img'>
-<img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
+{book.volumeInfo.imageLinks.thumbnail && <img src={book.volumeInfo.imageLinks.thumbnail} alt="book picture" />}
 </div>
 <div className='book-info'>
 {bookDetails.title.length ? <h3>Title: {bookDetails.title.length > 50 ? `${bookDetails.title.substring(0,50)}...` : `${bookDetails.title}`}</h3> : ''}
