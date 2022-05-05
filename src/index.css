@@ -369,3 +369,13 @@ form select{
   margin-top: 8px;
   
 }
+
+@media only screen and (max-width:1000px){
+
+  #viewerCanvas .book-img img{
+    width: 50%;
+    height: 100%;
+   
+    display: block;
+  }
+}
