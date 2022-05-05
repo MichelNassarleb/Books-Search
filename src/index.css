@@ -324,14 +324,17 @@ text-align: center;
   display: flex;
 
   width: 100%;
-height: auto;
+height: 40%;
 justify-content: center;
 align-items: center;
+border: 1px solid red;
 }
 
 #viewerCanvas .book-img img{
-  width: 30%;
-  height: auto;
+  width: 20%;
+  height: 100%;
+  border: 1px solid blue;
+  display: block;
 }
 input{
 padding: 10px;
